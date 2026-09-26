@@ -1,0 +1,14 @@
+Basic-Level Array Questions
+
+
+| Question                                         | Key Concept                         |
+| ------------------------------------------------ | ----------------------------------- |
+| Find the maximum and minimum element in an array | Traversal, comparison               |
+| Reverse an array                                 | Two-pointer / simple loop           |
+| Find the sum or average of array elements        | Simple loop                         |
+| Count even and odd numbers in an array           | Condition check                     |
+| Find second largest or smallest element          | Sorting or tracking variables       |
+| Check if an array is sorted                      | Traversal, condition check          |
+| Merge two sorted arrays                          | Two-pointer method                  |
+| Sort an array without using built-in function    | Bubble/Selection/Insertion sort     |
+| Remove duplicates from an array                  | HashSet / Two-pointer after sorting |

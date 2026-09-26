@@ -1,0 +1,24 @@
+1. Linear Search — important basics
+Problem	LeetCode	Difficulty
+Find Numbers with Even Number of Digits	1295	Easy
+Search in an Array / simple implementation	—	Easy
+Find the Index of the First Occurrence in a String	28	Easy
+
+
+
+2. Binary Search — VERY IMPORTANT ⭐
+
+Binary search requires a sorted/searchable space and reduces the search space by half. LeetCode 704 explicitly requires O(log n).
+
+Must-do in this order
+#	Problem	LC	Level
+1	Binary Search	704	Easy ⭐⭐⭐
+2	Search Insert Position	35	Easy ⭐⭐⭐
+3	Find First and Last Position of Element	34	Medium ⭐⭐⭐
+4	Search in Rotated Sorted Array	33	Medium ⭐⭐⭐
+5	Find Minimum in Rotated Sorted Array	153	Medium ⭐⭐⭐
+6	Search a 2D Matrix	74	Medium ⭐⭐
+7	Find Peak Element	162	Medium ⭐⭐
+8	Koko Eating Bananas	875	Medium ⭐⭐⭐
+9	Capacity to Ship Packages Within D Days	1011	Medium ⭐⭐⭐
+10	Minimum Number of Days to Make m Bouquets	1482	Medium ⭐⭐

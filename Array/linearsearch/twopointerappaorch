@@ -1,0 +1,361 @@
+
+
+Here is the complete roadmap from beginner → advanced, with the most important LeetCode problems and the common thing you should remember.
+
+🔥 TWO POINTER — COMPLETE PATTERN ROADMAP
+Pattern 1: Opposite Direction — Left + Right
+Idea
+
+Two pointers start from opposite ends:
+
+left →             ← right
+[1, 2, 3, 4, 5, 6]
+
+Move one pointer depending on the condition.
+
+Basic template
+int left = 0;
+int right = nums.length - 1;
+
+while (left < right) {
+
+    if (condition) {
+        left++;
+    } else {
+        right--;
+    }
+}
+Common problems
+Reverse String — LeetCode 344
+Valid Palindrome — LeetCode 125
+Two Sum II — LeetCode 167
+Container With Most Water — LeetCode 11
+Boats to Save People — LeetCode 881==
+Squares of a Sorted Array — LeetCode 977
+🧠 Remember
+
+Sorted array + find pair → think Left + Right.
+
+For Two Sum II:
+
+sum < target → left++
+sum > target → right--
+sum == target → answer
+
+
+-----------------------------------------------------------------------------------------------------------------------
+Pattern 2: Slow + Fast Pointer
+
+Both pointers move in the same direction.
+
+slow →
+fast →→
+
+Usually used to modify/filter an array in-place.
+
+Basic template
+int slow = 0;
+
+for (int fast = 0; fast < nums.length; fast++) {
+
+    if (condition) {
+        nums[slow] = nums[fast];
+        slow++;
+    }
+}
+Common problems
+Remove Element — LeetCode 27
+Remove Duplicates from Sorted Array — LeetCode 26
+Move Zeroes — LeetCode 283
+Remove Duplicates II — LeetCode 80
+String Compression — LeetCode 443====
+🧠 Remember
+
+One pointer searches, one pointer stores.
+
+fast = scans
+slow = stores
+
+This is extremely important.
+------------------------------------------------------------------------------------------------------------------
+Pattern 3: Fast + Slow — Linked List
+
+Here fast moves 2 steps, slow moves 1 step.
+
+slow → 
+fast → →
+Template
+ListNode slow = head;
+ListNode fast = head;
+
+while (fast != null && fast.next != null) {
+
+    slow = slow.next;
+    fast = fast.next.next;
+}
+Common problems
+Middle of Linked List — LeetCode 876
+Linked List Cycle — LeetCode 141
+Linked List Cycle II — LeetCode 142
+Palindrome Linked List — LeetCode 234
+🧠 Remember
+
+Linked List + middle/cycle → Slow + Fast.
+
+And:
+
+slow = 1 step
+fast = 2 steps
+-------------------------------------------------------------------------------------------------------------------
+Pattern 4: Two Pointer + Sliding Window
+
+This is also a Two Pointer technique.
+
+left →                 right →
+|-----------------------|
+          WINDOW
+
+right expands the window.
+
+left shrinks the window when the condition becomes invalid.
+
+Template
+int left = 0;
+
+for (int right = 0; right < nums.length; right++) {
+
+    // add nums[right]
+
+    while (condition) {
+        // remove nums[left]
+        left++;
+    }
+
+    // calculate answer
+}
+Common problems
+Minimum Size Subarray Sum — LeetCode 209
+Longest Substring Without Repeating Characters — LeetCode 3
+Permutation in String — LeetCode 567
+Find All Anagrams in a String — LeetCode 438
+Longest Repeating Character Replacement — LeetCode 424
+Minimum Window Substring — LeetCode 76
+🧠 Remember
+
+Substring/subarray + longest/shortest → think Sliding Window.
+
+And:
+
+right → expand
+left  → shrink
+--------------------------------------------------------------------------------------------------------------------
+Pattern 5: Two Pointer + Sorting
+
+This is very important for 3Sum / 4Sum.
+
+First:
+
+Arrays.sort(nums);
+
+Then fix one element and use two pointers.
+
+Example: 3Sum
+        i
+        ↓
+[-4, -1, -1, 0, 1, 2]
+       ↑        ↑
+      left     right
+Common problems
+3Sum — LeetCode 15
+4Sum — LeetCode 18
+3Sum Closest — LeetCode 16
+3Sum Smaller — LeetCode 259
+🧠 Remember
+
+3Sum/4Sum → Sort first → Fix one/two → Two Pointer.
+
+For 3Sum:
+
+i fixed
+left = i + 1
+right = n - 1
+
+Then:
+
+sum < 0 → left++
+sum > 0 → right--
+sum == 0 → answer
+-------------------------------------------------------------------------------------------------------------------
+Pattern 6: Partition / Dutch National Flag
+
+Used when you need to divide an array into sections.
+
+Classic example:
+
+Sort Colors
+
+0s | 1s | unknown | 2s
+
+Uses three pointers:
+
+low
+mid
+high
+Problem
+Sort Colors — LeetCode 75
+
+Template idea
+int low = 0;
+int mid = 0;
+int high = nums.length - 1;
+
+while (mid <= high) {
+
+    if (nums[mid] == 0) {
+        swap(nums, low, mid);
+        low++;
+        mid++;
+    }
+    else if (nums[mid] == 1) {
+        mid++;
+    }
+    else {
+        swap(nums, mid, high);
+        high--;
+    }
+}
+🧠 Remember
+0 → left
+1 → middle
+2 → right
+
+This is a three-pointer partition pattern.
+--------------------------------------------------------------------------------------------------------------
+Pattern 7: Merge Two Sorted Arrays
+
+Two pointers, one for each array.
+
+A: [1, 3, 5, 7]
+     ↑
+
+B: [2, 4, 6, 8]
+     ↑
+
+Compare:
+
+A[i] < B[j]
+→ take A[i]
+
+otherwise
+→ take B[j]
+Common problems
+Merge Sorted Array — LeetCode 88
+Intersection of Two Arrays II — LeetCode 350
+Intersection of Two Arrays — LeetCode 349
+🧠 Remember
+
+Two sorted arrays → one pointer for each array.
+
+Pattern 8: Two Pointer for Palindrome
+
+This is actually a special case of opposite-direction pointers.
+
+left →         ← right
+
+a b c d c b a
+↑             ↑
+
+Compare:
+
+while (left < right) {
+
+    if (s.charAt(left) != s.charAt(right)) {
+        return false;
+    }
+
+    left++;
+    right--;
+}
+Problems
+Valid Palindrome — LC 125
+Valid Palindrome II — LC 680
+Palindrome Linked List — LC 234
+🧠 Remember
+
+Compare beginning and ending → Left + Right.
+------------------------------------------------------------------------------------------------------------
+Pattern 9: Two Pointer + Greedy
+
+Here pointer movement is based on a greedy decision.
+
+Classic:
+
+Container With Most Water
+left                    right
+ ↓                        ↓
+[1,8,6,2,5,4,8,3,7]
+
+Area:
+
+min(height[left], height[right])
+×
+(right - left)
+
+Move the shorter side.
+
+if height[left] < height[right]
+    left++
+else
+    right--
+
+Problem:
+
+Container With Most Water — LeetCode 11
+
+🧠 Remember
+
+When two boundaries limit the answer, ask: which pointer can safely move?
+---------------------------------------------------------------------------------------------------------------------------
+Pattern 10: Two Pointer + Math / Optimization
+
+A good example is:
+
+Trapping Rain Water
+
+LeetCode 42
+
+You maintain:
+
+left
+right
+leftMax
+rightMax
+
+Concept:
+
+leftMax < rightMax
+→ process left
+
+otherwise
+→ process right
+🧠 Remember
+
+Two ends + maintaining maximum boundary → consider Two Pointer.
+
+🧠 MOST IMPORTANT RECOGNITION CHEAT SHEET
+
+When you see a problem, ask this:
+
+Question clue	Think
+Sorted array + pair	Left + Right
+Compare first & last	Left + Right
+Palindrome	Left + Right
+Remove elements	Slow + Fast
+Remove duplicates	Slow + Fast
+Move zeroes	Slow + Fast
+Linked List middle	Slow + Fast
+Linked List cycle	Slow + Fast
+Subarray/substring longest	Sliding Window
+Subarray/substring minimum	Sliding Window
+3Sum	Sort + Two Pointer
+4Sum	Sort + Two Pointer
